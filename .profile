@@ -13,7 +13,9 @@ source ~/dotfiles/.git.bash
 
 export CLICOLOR=1
 export TERM=xterm-color
-export LSCOLORS=Exgxcxdxbxegedabagacad
+export LSCOLORS=exgxcxdxbxegedabagacad
 
 alias e='subl'
+alias ls='ls -F'
+alias ll='ls -lF'
 
