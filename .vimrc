@@ -57,6 +57,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Plugin 'honza/vim-snippets'
 Bundle 'maksimr/vim-jsbeautify'
@@ -100,13 +101,8 @@ let g:miniBufExplForceSyntaxEnable = 1
 "nnoremap <C-D> :GitGutterToggle<cr>
 "nnoremap <C-d> :GitGutterLineHighlightsToggle<cr>
 
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
-nnoremap <C-X><C-O> <C-X>
-set splitbelow
-set splitright
+" shortcut to jump to next window
+nnoremap <C-W> <C-W><C-W>
 
 " MiniBufExpl Colors
 hi MBENormal               guifg=#808080 guibg=fg
