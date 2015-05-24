@@ -57,6 +57,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Plugin 'honza/vim-snippets'
 Bundle 'maksimr/vim-jsbeautify'
@@ -86,9 +87,18 @@ noremap <C-left> :bprev<CR>
 noremap <C-right> :bnext<CR>
 let g:miniBufExplForceSyntaxEnable = 1
 
-nnoremap <C-X><C-O> <C-X>
-set splitbelow
-set splitright
+" Emmet (Zen)
+"let g:user_emmet_install_global = 0
+"autocmd FileType html,css EmmetInstall
+"imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+"let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim_snippets.json')), "\n"))
+
+" git diff
+"nnoremap <C-D> :GitGutterToggle<cr>
+"nnoremap <C-d> :GitGutterLineHighlightsToggle<cr>
+
+" shortcut to jump to next window
+nnoremap <C-W> <C-W><C-W>
 
 " MiniBufExpl Colors
 hi MBENormal               guifg=#808080 guibg=fg
