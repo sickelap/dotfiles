@@ -11,8 +11,8 @@ export HOMEBREW_GITHUB_API_TOKEN=b2ffbdd33097e6858407f693901b762d19fb4749
 export ANDROID_HOME=/opt/android-sdk-macosx
 export MAVEN_OPTS="-Xms256m -XX:MaxPermSize=4g -Xmx4g"
 
-source ~/dotfiles/.symfony.bash
-source ~/dotfiles/.git.bash
+source ~/.dotfiles/.symfony.bash
+source ~/.dotfiles/.git.bash
 
 export CLICOLOR=1
 export TERM=xterm-color

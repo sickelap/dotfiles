@@ -63,19 +63,16 @@ Bundle 'maksimr/vim-jsbeautify'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'fholgado/minibufexpl.vim'
+Plugin 'elzr/vim-json'
 call vundle#end()            " required
 filetype plugin indent on    " required
 set omnifunc=syntaxcomplete#Complete
 
 set runtimepath^=~/.vim/bundle/vim-snippets,~/.vim/bundle/ctrlp.vim
 
-" Ctrl-P
-"set wildignore+=node_modules/*,target/*,*/tmp/*,*.so,*.swp,*.zip 
-"let g:ctrlp_working_path_mode = ''
 let g:ctrlp_custom_ignore = { 'dir' : '\v[\/](target|node_modules)' }
 
 au BufRead,BufNewFile *.tpl set filetype=html
-au BufRead,BufNewFile *.json set filetype=javascript
 
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
@@ -85,25 +82,10 @@ autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css,scss vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
-" buffers
-:noremap <C-left> :bprev<CR>
-:noremap <C-right> :bnext<CR>
+noremap <C-left> :bprev<CR>
+noremap <C-right> :bnext<CR>
 let g:miniBufExplForceSyntaxEnable = 1
 
-" Emmet (Zen)
-"let g:user_emmet_install_global = 0
-"autocmd FileType html,css EmmetInstall
-"imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-"let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim_snippets.json')), "\n"))
-
-" git diff
-"nnoremap <C-D> :GitGutterToggle<cr>
-"nnoremap <C-d> :GitGutterLineHighlightsToggle<cr>
-
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
 nnoremap <C-X><C-O> <C-X>
 set splitbelow
 set splitright
