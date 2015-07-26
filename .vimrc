@@ -14,6 +14,7 @@ Plugin 'honza/vim-snippets'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'hail2u/vim-css3-syntax'
+Plugin 'janko-m/vim-test'
 "Plugin 'weynhamz/vim-plugin-minibufexpl'
 Plugin 'elzr/vim-json'
 Plugin 'bling/vim-airline'
@@ -43,10 +44,10 @@ set number
 set cursorline
 hi CursorLine ctermbg=darkgray ctermfg=none cterm=none
 
-nnoremap <Up> <NOP>
-nnoremap <Down> <NOP>
-nnoremap <Left> <NOP>
-nnoremap <Right> <NOP>
+"nnoremap <Up> <NOP>
+"nnoremap <Down> <NOP>
+"nnoremap <Left> <NOP>
+"nnoremap <Right> <NOP>
 
 " display lines that exceeds 120 chars
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>120v.\+', -1)
