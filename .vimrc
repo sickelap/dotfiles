@@ -17,6 +17,8 @@ Bundle 'hail2u/vim-css3-syntax'
 "Plugin 'weynhamz/vim-plugin-minibufexpl'
 Plugin 'elzr/vim-json'
 Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-repeat'
+Plugin 'scrooloose/nerdtree'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -29,7 +31,7 @@ set modelines=0		" CVE-2007-2438
 set noswapfile
 set pastetoggle=<F2>
 "set splitbelow
-"set splitright
+set splitright
 set mouse=a
 set expandtab
 set shiftwidth=2
@@ -39,14 +41,15 @@ set autoindent
 set smartindent
 set laststatus=2
 set number
-
+set viminfo='20,<1000 " increase copy buffer size
+set diffopt=vertical
 set cursorline
 hi CursorLine ctermbg=darkgray ctermfg=none cterm=none
 
-nnoremap <Up> <NOP>
-nnoremap <Down> <NOP>
-nnoremap <Left> <NOP>
-nnoremap <Right> <NOP>
+"nnoremap <Up> <NOP>
+"nnoremap <Down> <NOP>
+"nnoremap <Left> <NOP>
+"nnoremap <Right> <NOP>
 
 " display lines that exceeds 120 chars
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>120v.\+', -1)
@@ -70,4 +73,26 @@ hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
 hi MBEVisibleChanged       guifg=#F1266F guibg=fg
 hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
 hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
+
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+let g:gitgutter_max_signs = 1000
+
+let g:highlighting = 0
+function! Highlighting()
+  if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+    let g:highlighting = 0
+    return ":silent nohlsearch\<CR>"
+  endif
+    let @/ = '\<'.expand('<cword>').'\>'
+    let g:highlighting = 1
+    return ":silent set hlsearch\<CR>"
+endfunction
+nnoremap <silent> <expr> <F3> Highlighting()
+":nnoremap <F3> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+imap <C-Space> <Plug>snipMateNextOrTrigger
 
