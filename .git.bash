@@ -1,5 +1,5 @@
-source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
-source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+source ~/.dotfiles/git-prompt.sh
+source ~/.dotfiles/git-completion.bash
 
 function parse_git_dirty {
     [[ $(git status -s 2> /dev/null| wc -l | awk '{print $1}') != "0" ]] && echo "*"
