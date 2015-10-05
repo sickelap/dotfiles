@@ -18,6 +18,7 @@ Plugin 'janko-m/vim-test'
 "Plugin 'weynhamz/vim-plugin-minibufexpl'
 Plugin 'elzr/vim-json'
 Plugin 'bling/vim-airline'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
