@@ -7,7 +7,7 @@ PATH=$PATH:/opt/android-sdk-macosx/platform-tools:/opt/android-sdk-macosx/tools
 
 export LANG=C
 export LC_TYPE=C
-export HOMEBREW_GITHUB_API_TOKEN=b2ffbdd33097e6858407f693901b762d19fb4749
+export HOMEBREW_GITHUB_API_TOKEN=043a417e8512a5acae60255c3af3d4111d629981
 export ANDROID_HOME=/opt/android-sdk-macosx
 export MAVEN_OPTS="-Xms256m -XX:MaxPermSize=4g -Xmx4g"
 
