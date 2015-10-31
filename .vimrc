@@ -14,7 +14,7 @@ Plugin 'honza/vim-snippets'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'hail2u/vim-css3-syntax'
-"Plugin 'weynhamz/vim-plugin-minibufexpl'
+Plugin 'scrooloose/syntastic'
 Plugin 'elzr/vim-json'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-repeat'
@@ -96,3 +96,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 imap <C-Space> <Plug>snipMateNextOrTrigger
 
+" gitgutter - hunk navigation
+nmap <Leader>hn <Plug>GitGutterNextHunk
+nmap <Leader>hp <Plug>GitGutterPrevHunk
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
