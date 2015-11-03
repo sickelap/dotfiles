@@ -11,7 +11,6 @@ Plugin 'janko-m/vim-test'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
-Plugin 'maksimr/vim-jsbeautify'
 Plugin 'tpope/vim-repeat'
 Plugin 'scrooloose/nerdtree'
 call vundle#end()            " required
@@ -53,13 +52,7 @@ set omnifunc=syntaxcomplete#Complete
 
 let g:ctrlp_custom_ignore = { 'dir' : '\v[\/](target|node_modules)' }
 
-noremap <buffer>  <c-f> :Autoformat<cr>
-"autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-"autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-"autocmd FileType css,scss noremap <buffer> <c-f> :call CSSBeautify()<cr>
-"autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-"autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-"autocmd FileType css,scss vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+autocmd FileType * noremap <buffer> <c-f> :Autoformat<cr>
 
 let g:miniBufExplForceSyntaxEnable = 1
 hi MBENormal               guifg=#808080 guibg=fg
