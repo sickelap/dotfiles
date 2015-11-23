@@ -22,6 +22,7 @@ alias e='subl'
 alias ls='ls -F'
 alias ll='ls -lF'
 
+[ -f ~/.security ] && . ~/.security
 
-export NVM_DIR="/Users/rwx/.nvm"
+export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
