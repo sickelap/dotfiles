@@ -51,7 +51,7 @@ au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>120v.\+', -1)
 
 set omnifunc=syntaxcomplete#Complete
 
-let g:ctrlp_custom_ignore = { 'dir' : '\v[\/](target|node_modules)' }
+let g:ctrlp_custom_ignore = { 'dir' : '\v[\/](target|node_modules|coverage|jspm_packages|newtable|assets)' }
 
 autocmd FileType * noremap <buffer> <c-f> :Autoformat<cr>
 
