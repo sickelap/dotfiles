@@ -1,9 +1,6 @@
-
 PATH=$PATH:~/bin
 PATH=$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin
 PATH=$PATH:/usr/local/bin:/usr/local/sbin
-#PATH=/opt/local/bin:/opt/local/sbin:$PATH
-#PATH=$PATH:/opt/android-sdk-macosx/platform-tools:/opt/android-sdk-macosx/tools
 
 export LANG=lt_LT.UTF-8
 export LC_TYPE=lt_LT.UTF-8
@@ -15,7 +12,6 @@ source ~/.dotfiles/.symfony.bash
 source ~/.dotfiles/.git.bash
 
 export CLICOLOR=1
-export TERM=xterm-color
 export LSCOLORS=exgxcxdxbxegedabagacad
 
 alias e='subl'
