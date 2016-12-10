@@ -6,7 +6,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'sickelap/syntastic'
+"Plugin 'sickelap/syntastic'
 Plugin 'bling/vim-airline'
 "Plugin 'albfan/nerdtree' " scorooloose/nerdtree fork to support gitignore
 "Plugin 'albfan/nerdtree-git-plugin'
@@ -15,10 +15,14 @@ Plugin 'bling/vim-airline'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'clausreinke/typescript-tools.vim'
 Plugin 'wakatime/vim-wakatime'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 "Plugin 'ternjs/tern_for_vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'Shougo/vimproc'
+Plugin 'Quramy/tsuquyomi'
 call vundle#end()
 
+let base16colorspace=256
 set t_Co=256
 set hidden
 set nocompatible
@@ -54,8 +58,11 @@ endif
 
 " -- visual sugar
 " highlight current line
-hi CursorLine ctermbg=darkgray ctermfg=none cterm=none
-" highlight characters that goes above 120 characters
+hi cursor ctermbg=darkgray ctermfg=black cterm=none
+hi cursorline cterm=none
+hi cursorlinenr ctermfg=lightgray
+hi cursorlinenr ctermbg=darkgray
+" highlight characters after more than 150 characters
 " XXX: should we support per filetype rules ?
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>150v.\+', -1)
 
@@ -96,16 +103,15 @@ function! Highlighting()
 endfunction
 nnoremap <silent> <expr> <F3> Highlighting()
 
-" discipline
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-
-inoremap <left> <nop>
-inoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
+" learn home row
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
 
 " #################################
 " Plugins
