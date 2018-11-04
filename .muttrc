@@ -47,3 +47,8 @@ source ~/.mutt/colors-solarized-dark-256.muttrc
 # alternates my.another@email.com
 ############################################################################# 
 source ~/.muttrc.secret
+
+# playing with new bindings
+bind generic,index,pager /	search
+bind generic,index,pager :	enter-command
+
