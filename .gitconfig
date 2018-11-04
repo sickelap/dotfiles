@@ -1,0 +1,14 @@
+[user]
+	name = Full Name
+	email = primary@email.com
+
+[push]
+	default = matching
+
+[alias]
+	co = checkout
+	ls = !git -P log --oneline -10
+	tree = !git -P log --oneline --graph
+	st = !git -P status -s
+	br = !git -P branch -vv
+	diff = !git -P diff --word-diff

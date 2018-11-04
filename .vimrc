@@ -30,10 +30,10 @@ set noswapfile
 set pastetoggle=<F2>
 set splitright
 set mouse=a
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set backspace=2
+"set expandtab
+"set shiftwidth=2
+"set softtabstop=2
+"set backspace=2
 set autoindent
 set smartindent
 set laststatus=2
@@ -41,8 +41,13 @@ set number
 set viminfo='20,<1000 " increase copy buffer size
 set diffopt=vertical
 set cursorline
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 filetype plugin indent on
 syntax on
+
+noremap <F5> :set list!<CR>
+inoremap <F5> <C-o>:set list!<CR>
+cnoremap <F5> <C-c>:set list!<CR>
 
 " utf-8 support
 set encoding=utf-8

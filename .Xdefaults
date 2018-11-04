@@ -1,0 +1,25 @@
+XTerm*loginShell:true
+XTerm*background: grey10
+XTerm*foreground: grey
+xterm*scrollBar: false
+xterm*faceName: "DejaVu Sans Mono"
+xterm*faceSize: 18
+XTerm*saveLines: 10000
+XTerm*on2Clicks: regex [^  \n]+
+XTerm*bellIsUrgent: true
+XTerm*metaSendsEscape: true
+XTerm*allowWindowOps: true
+xpdf*initialZoom: page
+dmenu*fontName: DejaVu Sans Mono
+dmenu*fontSize: 18
+
+rofi.modi: combi
+rofi.combi-modi: drun,run
+#rofi.padding: 800
+#rofi.width: 100
+rofi.lines: 5
+rofi.font: System San Francisco Display 20
+rofi.bw: 0
+#rofi.opacity: 85
+rofi.eh: 2
+
