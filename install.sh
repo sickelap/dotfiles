@@ -3,6 +3,7 @@
 CWD=`pwd`
 SRC="
 .Xdefaults
+.bg
 .fonts
 .gitconfig
 .i3
