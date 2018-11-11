@@ -3,7 +3,7 @@ set $mod Mod1
 # remove window title to have more real estate
 for_window [class="^.*"] border pixel 1
 
-font pango:System San Francisco Display 16
+font pango:System San Francisco Display 11
 
 floating_modifier $mod
 
@@ -13,7 +13,7 @@ bindsym $mod+Return exec xterm
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn "System San Francisco Display 20" 
+bindsym $mod+d exec rofi -show combi
 
 # change focus
 bindsym $mod+j focus left
