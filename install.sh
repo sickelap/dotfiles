@@ -10,6 +10,7 @@ SRC="
 .i3status.conf
 .mailcap
 .muttrc
+.mutt
 .profile
 .tmux.conf
 .vimrc

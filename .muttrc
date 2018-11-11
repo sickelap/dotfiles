@@ -46,7 +46,7 @@ source ~/.mutt/colors-solarized-dark-256.muttrc
 # set realname = 'Full Name'
 # alternates my.another@email.com
 ############################################################################# 
-source ~/.muttrc.secret
+source ~/.mutt/secret
 
 # playing with new bindings
 bind generic,index,pager /	search
