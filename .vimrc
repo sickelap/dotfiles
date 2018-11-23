@@ -30,7 +30,7 @@ set laststatus=2
 set number
 set viminfo='20,<1000 " increase copy buffer size
 set diffopt=vertical
-set cursorline
+nopnopnopnopset cursorline
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 filetype plugin indent on
 syntax on
@@ -55,7 +55,7 @@ hi cursor ctermbg=darkgray ctermfg=black cterm=none
 hi cursorline cterm=none
 hi cursorlinenr ctermfg=lightgray
 hi cursorlinenr ctermbg=darkgray
-au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>150v.\+', -1)
+au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%80v')
 
 let g:miniBufExplForceSyntaxEnable = 1
 hi MBENormal               guifg=#808080 guibg=fg
@@ -66,6 +66,11 @@ hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
 hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 
 let mapleader = ","
+
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 autocmd FileType * noremap <buffer> <c-f> :Autoformat<cr>
 
