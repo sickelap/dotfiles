@@ -1,0 +1,21 @@
+XTerm*loginShell: true
+XTerm*background: grey10
+XTerm*foreground: grey
+XTerm*scrollBar: false
+XTerm*faceName: DejaVu Sans Mono
+XTerm*faceSize: _TPL_XTERM_FONT_SIZE
+XTerm*saveLines: 10000
+XTerm*on2Clicks: regex [^  \n]+
+XTerm*bellIsUrgent: true
+XTerm*metaSendsEscape: true
+XTerm*allowWindowOps: true
+
+xpdf*initialZoom: page
+
+rofi.modi: combi
+rofi.combi-modi: drun,run
+rofi.lines: 5
+rofi.font: _TPL_ROFI_FONT
+rofi.bw: 0
+rofi.eh: 2
+
