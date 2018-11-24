@@ -30,7 +30,6 @@ set laststatus=2
 set number
 set viminfo='20,<1000 " increase copy buffer size
 set diffopt=vertical
-nopnopnopnopset cursorline
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 filetype plugin indent on
 syntax on
@@ -96,6 +95,7 @@ let g:ctrlp_open_multiple_files = 'tr'
 " == gitgutter ====================
 nmap <Leader>hn <Plug>GitGutterNextHunk
 nmap <Leader>hp <Plug>GitGutterPrevHunk
+nmap <Leader>hr <Plug>GitGutterUndoHunk
 let g:gitgutter_max_signs = 1000
 
 " == airline ======================
