@@ -8,6 +8,7 @@ SRC="
 .gitconfig
 .i3
 .i3status.conf
+.npmrc
 .mailcap
 .muttrc
 .mutt
