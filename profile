@@ -1,5 +1,4 @@
-PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/sbin
-PATH=$PATH:~/bin
+PATH=~/.bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/sbin
 
 CWD=$HOME/.dotfiles
 
@@ -12,7 +11,7 @@ CWD=$HOME/.dotfiles
 #  fi
 #done
 
-for file in ${CWD}/bash_completion/* ${CWD}/include/*; do
+for file in ${CWD}/include/* ${CWD}/bash_completion/*; do
   source $file
 done
 
