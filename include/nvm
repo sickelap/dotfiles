@@ -1,2 +1,2 @@
-export NVM_DIR=~/.nvms
+export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
