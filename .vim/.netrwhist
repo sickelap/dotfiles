@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/Users/genadijus.paleckis/gamesys/games-platform/aggregator/contract'
+let g:netrw_dirhist_8='/Users/genadijus.paleckis/.dotfiles/bash_completion'
+let g:netrw_dirhist_7='/Users/genadijus.paleckis/.tmux'
+let g:netrw_dirhist_6='/Users/genadijus.paleckis/gamesys/games-platform/rgs-game-server/deployment/database/all/release_changes/2019-S13'
+let g:netrw_dirhist_5='/Users/genadijus.paleckis/gamesys/games-platform/rgs-game-server/deployment/database/all/release_changes'
+let g:netrw_dirhist_4='/Users/genadijus.paleckis/gamesys/games-platform/rgs-game-server/deployment/database/all'
+let g:netrw_dirhist_3='/Users/genadijus.paleckis/gamesys/games-platform/rgs-game-server/deployment/database'
+let g:netrw_dirhist_2='/Users/genadijus.paleckis/gamesys/games-platform/container-boclient/.githook'
+let g:netrw_dirhist_1='/Users/genadijus.paleckis/gamesys/games-platform/container-boclient'
+let g:netrw_dirhist_0='/Users/genadijus.paleckis/gamesys/games-platform'

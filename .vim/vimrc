@@ -1,0 +1,5 @@
+source $HOME/.vim/cfg/plug.vimrc
+source $HOME/.vim/cfg/general.vimrc
+source $HOME/.vim/cfg/functions.vimrc
+source $HOME/.vim/cfg/keybindings.vimrc
+source $HOME/.vim/cfg/plugins.vimrc
