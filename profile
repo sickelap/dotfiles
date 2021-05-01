@@ -15,3 +15,4 @@ for file in ${CWD}/include/* ${CWD}/bash_completion/*; do
   source $file
 done
 
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"

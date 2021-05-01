@@ -1,6 +1,6 @@
 [user]
   name = Genadijus Paleckis
-  email = email@dot.com
+  email = rwx@openbsd.lt
 
 [push]
   default = matching
