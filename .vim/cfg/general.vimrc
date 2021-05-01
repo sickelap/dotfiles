@@ -17,6 +17,8 @@ set wildmenu
 
 set pastetoggle=<F2>
 
+set encoding=UTF-8
+
 colorscheme Tomorrow-Night
 
 filetype indent plugin on

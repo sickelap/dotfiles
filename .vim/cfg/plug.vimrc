@@ -8,4 +8,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'
+Plug 'preservim/nerdtree'
+Plug 'sbdchd/neoformat'
+Plug 'sheerun/vim-polyglot'
+Plug 'dense-analysis/ale'
 call plug#end()
