@@ -23,3 +23,5 @@ colorscheme Tomorrow-Night
 
 filetype indent plugin on
 syntax enable
+
+set re=0
