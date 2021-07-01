@@ -1,6 +1,6 @@
 [user]
   name = Genadijus Paleckis
-  email = rwx@openbsd.lt
+  email = genadijus.paleckis@gamesys.co.uk
 
 [push]
   default = matching
@@ -18,3 +18,5 @@
 [core]
   editor = vim
   autocrlf = input
+[pull]
+	ff = only
