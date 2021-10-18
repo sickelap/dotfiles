@@ -1,4 +1,10 @@
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-  export WORKON_HOME=~/virtualenv
-  source /usr/local/bin/virtualenvwrapper.sh
-fi
+files="
+  /usr/local/bin/virtualenvwrapper.sh
+  /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+"
+
+for file in $files; do
+  if [ -f $file ]; then
+    source $file
+  fi
+done
