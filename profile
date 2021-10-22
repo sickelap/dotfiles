@@ -11,6 +11,28 @@ CWD=$HOME/.dotfiles
 #  fi
 #done
 
-for file in ${CWD}/include/* ${CWD}/bash_completion/*; do
-  source $file
+
+for file in ${CWD}/include/*.sh; do
+  . $file
 done
+
+# load bash completions if we have bash
+which bash >/dev/null
+if [ $? -eq 0 ]; then
+  for file in ${CWD}/bash_completion/* ${CWD}/bash_include/*; do
+    source $file
+  done
+fi
+
+# load java versions manager
+which jenv >/dev/null
+if [ $? -eq 0 ]; then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
+
+# load node version manager
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  source "$NVM_DIR/nvm.sh"
+fi

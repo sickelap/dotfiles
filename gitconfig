@@ -18,5 +18,6 @@
 [core]
   editor = vim
   autocrlf = input
+	hooksPath = /Users/genadijus.paleckis/gamesys/games-platform/solaris-pond/scripts
 [pull]
 	ff = only

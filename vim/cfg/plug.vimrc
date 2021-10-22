@@ -12,4 +12,9 @@ Plug 'preservim/nerdtree'
 Plug 'sbdchd/neoformat'
 Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
+
+if has('nvim')
+    Plug 'neovim/nvim-lspconfig'
+endif
+
 call plug#end()
