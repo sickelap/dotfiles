@@ -38,3 +38,10 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 " ====== ALE
 let g:ale_completion_enabled=1
 set omnifunc=ale#completion#OmniFunc
+
+" neovim lspconfig
+if has('nvim')
+lua << EOF
+require'lspconfig'.tsserver.setup{}
+EOF
+endif
