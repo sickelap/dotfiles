@@ -17,6 +17,7 @@ set expandtab
 set smartindent
 
 set incsearch 
+set nohlsearch
 
 set pastetoggle=<F2>
 
@@ -31,6 +32,8 @@ set colorcolumn=80
 "syntax enable
 
 set re=0
+
+set completeopt=menu,menuone,noselect
 
 let mapleader=" "
 
