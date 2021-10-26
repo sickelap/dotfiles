@@ -1,2 +1,4 @@
 secrets
 vim/plugged
+vim/undodir/*
+.netrwhist

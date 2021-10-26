@@ -1,4 +1,4 @@
-PATH=~/.bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/sbin
+PATH=~/bin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/sbin
 
 CWD=$HOME/.dotfiles
 
