@@ -8,7 +8,7 @@ call plug#begin('~/.vim/plugged')
 
     "Plug 'mattn/emmet-vim'
     Plug 'preservim/nerdtree'
-    
+
     Plug 'editorconfig/editorconfig-vim'
     Plug 'sbdchd/neoformat'
     "Plug 'sheerun/vim-polyglot'
