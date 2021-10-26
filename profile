@@ -32,7 +32,6 @@ if [ $? -eq 0 ]; then
 fi
 
 # load node version manager
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  source "$NVM_DIR/nvm.sh"
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+  source "$HOME/.nvm/nvm.sh"
 fi
