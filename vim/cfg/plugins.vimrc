@@ -48,7 +48,7 @@ let g:ale_completion_enabled=1
 set omnifunc=ale#completion#OmniFunc
 
 " neovim lspconfig
-if has('nvim')
+if has('lua')
 lua << EOF
 require'lspconfig'.tsserver.setup{}
 EOF
