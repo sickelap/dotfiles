@@ -25,6 +25,7 @@ set encoding=UTF-8
 
 colorscheme gruvbox
 set background=dark
+set guicursor=
 
 set colorcolumn=80
 

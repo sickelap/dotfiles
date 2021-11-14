@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 
-  "Plug 'mattn/emmet-vim'
+  Plug 'mattn/emmet-vim'
   Plug 'preservim/nerdtree'
 
   Plug 'editorconfig/editorconfig-vim'
@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   else
     Plug 'kien/ctrlp.vim'
     Plug 'prabirshrestha/vim-lsp'
