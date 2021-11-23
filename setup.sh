@@ -5,7 +5,9 @@ THIS_DIR=$(cd $(dirname $0) && pwd)
 # vim and neovim
 rm -rf $HOME/.config/nvim
 ln -sf $THIS_DIR/vim $HOME/.config/nvim
-ln -sf $THIS_DIR/vim $HOME/.vim
+if [ ! -e $HOME/.vim ]; then
+  ln -sf $THIS_DIR/vim $HOME/.vim
+fi
 
 # tmux
 ln -sf $THIS_DIR/tmux.conf $HOME/.tmux.conf
