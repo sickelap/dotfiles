@@ -24,13 +24,6 @@ if [ $? -eq 0 ]; then
   done
 fi
 
-# load java versions manager
-which jenv >/dev/null
-if [ $? -eq 0 ]; then
-  export PATH="$HOME/.jenv/bin:$PATH"
-  eval "$(jenv init -)"
-fi
-
 # load node version manager
 if [ -s "$HOME/.nvm/nvm.sh" ]; then
   source "$HOME/.nvm/nvm.sh"
