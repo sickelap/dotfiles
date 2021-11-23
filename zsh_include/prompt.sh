@@ -2,7 +2,7 @@ autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
 add-zsh-hook precmd vcs_info
 
-export PROMPT="
+PROMPT="
 %F{cyan}%~%f${vcs_info_msg_0_}
 $ "
 
