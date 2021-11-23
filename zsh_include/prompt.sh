@@ -1,16 +1,12 @@
-git_prompt() {
-  branch=$(git rev-parse --abbrev-ref HEAD)
-  status=""
-  if branch; then
-    if [[ -z $(git status -s) ]]; then
-      status="*"
-    fi
-    echo " [${branch}${status}]"
-  fi
-}
+autoload -Uz add-zsh-hook vcs_info
+setopt prompt_subst
+add-zsh-hook precmd vcs_info
 
-precmd() {
-  print ""
-  print -rP "%F{cyan}%~${git_prompt}%f"
-}
-export PROMPT="$ "
+export PROMPT="
+%F{cyan}%~%f${vcs_info_msg_0_}
+$ "
+
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '*'
+zstyle ':vcs_info:git:*' formats ' [%F{green}%b%f%F{yellow}%u%c%f]'
+zstyle ':vcs_info:git:*' actionformats ' [%F{green}%b%f|%F{magenta}%a%f%F{yellow}%u%c%f]'
