@@ -7,6 +7,6 @@ alias vim='nvim'
 alias vi='nvim'
 
 which thefuck 2>&1 >/dev/null
-if [ $? == 0 ]; then
+if [[ $? == 0 ]]; then
   eval $(thefuck --alias)
 fi
