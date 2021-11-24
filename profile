@@ -11,20 +11,28 @@ CWD=$HOME/.dotfiles
 #  fi
 #done
 
-
 for file in ${CWD}/include/*.sh; do
   . $file
 done
 
-# load bash completions if we have bash
-which bash >/dev/null
-if [ $? -eq 0 ]; then
-  for file in ${CWD}/bash_completion/* ${CWD}/bash_include/*; do
-    source $file
-  done
-fi
+interpreter=`ps h -p $$ -o args='' | cut -f1 -d' '`
+case $interpreter in
+  -zsh)
+    for file in ${CWD}/zsh_include/*.sh; do
+      . $file
+    done
+  ;;
 
-# load node version manager
-if [ -s "$HOME/.nvm/nvm.sh" ]; then
-  source "$HOME/.nvm/nvm.sh"
-fi
+  -bash)
+    for file in ${CWD}/bash_completion/* ${CWD}/bash_include/*; do
+      source $file
+    done
+    if [ -s "$HOME/.nvm/bash_completion" ]; then
+      source "$HOME/.nvm/bash_completion"
+    fi
+  ;;
+
+  *)
+    echo "interpreter: $interpreter"
+  ;;
+esac
