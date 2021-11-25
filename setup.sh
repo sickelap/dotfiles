@@ -21,7 +21,6 @@ if [ ! -d $HOME/.nvm ]; then
 fi
 
 # other shit
-ln -sf $THIS_DIR/profile $HOME/.profile
 ln -sf $THIS_DIR/gitconfig $HOME/.gitconfig
-echo > $HOME/.bashrc
-echo > $HOME/.zshrc
+ln -sf $THIS_DIR/profile $HOME/.zshrc
+ln -sf $THIS_DIR/profile $HOME/.bash_profile
