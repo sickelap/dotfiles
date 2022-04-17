@@ -1,4 +1,3 @@
-
 set noerrorbells
 set nocompatible
 set noswapfile
@@ -36,7 +35,7 @@ set re=0
 
 set completeopt=menu,menuone,noselect
 
-let mapleader=" "
+let mapleader=","
 
 let g:netrw_browse_split=2
 let g:netrw_banner=0

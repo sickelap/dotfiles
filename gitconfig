@@ -1,6 +1,6 @@
 [user]
   name = Genadijus Paleckis
-  email = genadijus.paleckis@gamesys.co.uk
+  email = genadijus.paleckis@pm.me
 
 [push]
   default = matching
@@ -18,6 +18,5 @@
 [core]
   editor = vim
   autocrlf = input
-	hooksPath = /Users/genadijus.paleckis/gamesys/games-platform/solaris-pond/scripts
 [pull]
 	ff = only
