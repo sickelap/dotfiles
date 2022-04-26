@@ -1,0 +1,7 @@
+[user]
+  name = Full Name
+  email = email@corp.org
+  signkey = DEADBEEFDEADBEEFDEADBEEF
+  
+[commit]
+  pgpsign = true
