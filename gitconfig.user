@@ -2,6 +2,9 @@
   name = Full Name
   email = email@corp.org
   signkey = DEADBEEFDEADBEEFDEADBEEF
-  
+
+[gpg]
+  program = gpg
+
 [commit]
-  pgpsign = true
+  gpgSign = true
