@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
+  Plug 'tpope/vim-commentary'
+
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
 
