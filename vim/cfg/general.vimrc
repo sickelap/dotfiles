@@ -28,8 +28,8 @@ set guicursor=
 
 set colorcolumn=80
 
-"filetype indent plugin on
-"syntax enable
+filetype indent plugin on
+syntax enable
 
 set re=0
 

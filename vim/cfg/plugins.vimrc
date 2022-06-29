@@ -13,7 +13,7 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'editorconfig/editorconfig-vim'
   Plug 'sbdchd/neoformat'
-  "Plug 'sheerun/vim-polyglot'
+  Plug 'sheerun/vim-polyglot'
   "Plug 'pearofducks/ansible-vim'
 
   "Plug 'dense-analysis/ale'

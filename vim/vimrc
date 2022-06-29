@@ -7,3 +7,4 @@ source $HOME/.vim/cfg/include/ctrlp-telescope.vim
 source $HOME/.vim/cfg/include/lspconfig.vim
 source $HOME/.vim/cfg/include/neoformat.vim
 source $HOME/.vim/cfg/include/nerdtree.vim
+source $HOME/.vim/cfg/include/filetypes.vim
