@@ -5,6 +5,7 @@ while read location; do
     return
   fi
 done << EOF
+  /Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
   /usr/lib/jvm/java-11-openjdk-amd64
   /usr/local/Cellar/openjdk\@11/11.0.10
 EOF
