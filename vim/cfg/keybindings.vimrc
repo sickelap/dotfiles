@@ -18,8 +18,5 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" train myself to not close editor by instinct
-cnoremap <expr> <CR> getcmdtype() == ":" && index(["q", "q!", "wq", "wq!"], getcmdline()) >= 0 ? "<C-u>echom 'You will never escape...! MWA..HA..HA...'<CR>" : "<CR>"
-
 nnoremap <C-L> :bn<CR>
 nnoremap <C-H> :bp<CR>
