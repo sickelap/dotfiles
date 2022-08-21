@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'sbdchd/neoformat'
   Plug 'sheerun/vim-polyglot'
   "Plug 'pearofducks/ansible-vim'
+  Plug 'haya14busa/is.vim'
 
   "Plug 'dense-analysis/ale'
   if has('nvim')

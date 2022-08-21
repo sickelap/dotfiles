@@ -15,9 +15,6 @@ set shiftwidth=2
 set expandtab
 set smartindent
 
-set incsearch 
-set nohlsearch
-
 set pastetoggle=<F2>
 
 set encoding=UTF-8
