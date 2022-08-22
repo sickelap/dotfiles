@@ -20,3 +20,5 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 nnoremap <C-L> :bn<CR>
 nnoremap <C-H> :bp<CR>
+inoremap <C-L> :bn<CR>
+nnoremap <C-H> :bp<CR>

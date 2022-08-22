@@ -5,6 +5,8 @@ while read location; do
     return
   fi
 done << EOF
+  /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
+  /usr/local/Cellar/openjdk@17/17.0.4
   /Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
   /usr/lib/jvm/java-11-openjdk-amd64
   /usr/local/Cellar/openjdk\@11/11.0.10
