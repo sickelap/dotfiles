@@ -32,6 +32,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'hrsh7th/vim-vsnip'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+    Plug 'APZelos/blamer.nvim'
   else
     Plug 'kien/ctrlp.vim'
     Plug 'prabirshrestha/vim-lsp'
