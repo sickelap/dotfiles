@@ -29,3 +29,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "120"
+
+vim.cmd("let g:blamer_enabled = 1")
+vim.cmd("let g:blamer_delay = 100")
+vim.cmd("let g:blamer_prefix = ' > '")
