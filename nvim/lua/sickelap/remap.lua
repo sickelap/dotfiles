@@ -17,6 +17,17 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
+vim.keymap.set("n", "<C-L>", ":bn<CR>")
+vim.keymap.set("n", "<C-H>", ":bp<CR>")
+vim.keymap.set("i", "<C-L>", ":bn<CR>")
+vim.keymap.set("i", "<C-H>", ":bp<CR>")
+
+vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR><C-w><C-w>")
+vim.keymap.set("n", "<C-f>", ":NvimTreeFindFileToggle<CR>")
+
+vim.keymap.set("n", "<C-[>", ":bp<CR>");
+vim.keymap.set("n", "<C-]>", ":bn<CR>");
+
 vim.keymap.set("n", "<leader>f", function()
   vim.lsp.buf.format()
 end)

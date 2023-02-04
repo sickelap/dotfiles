@@ -25,3 +25,4 @@ ln -sf $THIS_DIR/gitconfig $HOME/.gitconfig
 ln -sf $THIS_DIR/profile $HOME/.zshrc
 ln -sf $THIS_DIR/profile $HOME/.bashrc
 ln -sf $THIS_DIR/profile $HOME/.bash_profile
+ln -sf $THIS_DIR/editorconfig $HOME/.editorconfig

@@ -50,4 +50,16 @@ return require('packer').startup(function(use)
 
 	use { 'sbdchd/neoformat' }
 	use { 'editorconfig/editorconfig-vim' }
+
+  use { 'preservim/nerdtree' }
+  use { 'airblade/vim-gitgutter' }
+
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
+
 end)
