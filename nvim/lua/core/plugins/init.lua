@@ -1,3 +1,4 @@
+require('core.plugins.blamer')
 require('core.plugins.gruvbox')
 require('core.plugins.harpoon')
 require('core.plugins.lualine')
