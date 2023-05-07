@@ -12,8 +12,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-Space>'] = cmp.mapping.complete(),
 })
 
-cmp_mappings['Tab'] = nil
-cmp_mappings['S-Tab'] = nil
+-- cmp_mappings['Tab'] = nil
+-- cmp_mappings['S-Tab'] = nil
 
 lsp.set_preferences({
   suggest_lsp_servers = false,
