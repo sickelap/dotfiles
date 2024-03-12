@@ -9,6 +9,7 @@ done << EOF
   /usr/local/Cellar/openjdk@17/17.0.4
   /Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
   /usr/lib/jvm/java-11-openjdk-amd64
+  /usr/lib/jvm/java-21-openjdk-amd64
   /usr/local/Cellar/openjdk\@11/11.0.10
 EOF
 

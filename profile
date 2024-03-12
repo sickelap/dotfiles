@@ -36,5 +36,6 @@ case $interpreter in
     echo "interpreter: $interpreter"
   ;;
 esac
-
-. "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
