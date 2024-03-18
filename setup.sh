@@ -18,6 +18,9 @@ if [ ! -d $HOME/.nvm ]; then
   curl -so- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 fi
 
+# go vesion manager
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+
 # other shit
 ln -sf $THIS_DIR/gitconfig $HOME/.gitconfig
 ln -sf $THIS_DIR/profile $HOME/.zshrc

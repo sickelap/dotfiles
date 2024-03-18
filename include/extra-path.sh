@@ -6,5 +6,4 @@ while read EXTRA_PATH; do
 done << EOF
   /opt/platform-tools
   $HOME/anaconda3/bin
-  /opt/go/1.22.1/bin
 EOF

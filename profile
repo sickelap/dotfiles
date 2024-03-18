@@ -31,11 +31,8 @@ case $interpreter in
       source "$HOME/.nvm/bash_completion"
     fi
   ;;
-
-  *)
-    echo "interpreter: $interpreter"
-  ;;
 esac
-if [ -d "$HOME/.cargo/env" ]; then
-  . "$HOME/.cargo/env"
-fi
+
+[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
