@@ -19,7 +19,9 @@ if [ ! -d $HOME/.nvm ]; then
 fi
 
 # go vesion manager
-bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+if [ ! -d $HOME/.gvm ]; then
+  bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+fi
 
 # other shit
 ln -sf $THIS_DIR/gitconfig $HOME/.gitconfig
