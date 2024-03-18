@@ -3,12 +3,7 @@
 THIS_DIR=$(cd $(dirname $0) && pwd)
 
 $THIS_DIR/_setup/setup-neovim.sh
-
-# tmux
-ln -sf $THIS_DIR/tmux.conf $HOME/.tmux.conf
-if [ ! -d $HOME/.tmux/plugins/tpm ]; then
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
+$THIS_DIR/_setup/setup-tmux.sh
 
 # node version manager
 if [ ! -d $HOME/.nvm ]; then
