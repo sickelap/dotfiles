@@ -33,6 +33,5 @@ case $interpreter in
   ;;
 esac
 
-[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
-
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# [[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
