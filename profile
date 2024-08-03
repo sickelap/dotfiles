@@ -15,23 +15,5 @@ for file in ${CWD}/include/*.sh; do
   . $file
 done
 
-interpreter=`ps h -p $$ -o args='' | cut -f1 -d' '`
-case $interpreter in
-  -zsh)
-    for file in ${CWD}/zsh_include/*.sh; do
-      . $file
-    done
-  ;;
-
-  -bash)
-    for file in ${CWD}/bash_completion/* ${CWD}/bash_include/*; do
-      source $file
-    done
-    if [ -s "$HOME/.nvm/bash_completion" ]; then
-      source "$HOME/.nvm/bash_completion"
-    fi
-  ;;
-esac
-
-# [[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
-# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"

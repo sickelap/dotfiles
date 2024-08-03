@@ -1,5 +1,5 @@
 while read EXTRA_PATH; do
-  if [ -d $EXTRA_PATH ]; then
+  if [[ -d $EXTRA_PATH ]]; then
     export PATH="$PATH:$EXTRA_PATH"
     return
   fi

@@ -1,5 +1,5 @@
 while read location; do
-  if [ -d $location ]; then
+  if [[ -d $location ]]; then
     export JAVA_HOME="$location"
     export PATH="$JAVA_HOME/bin:$PATH"
     return
