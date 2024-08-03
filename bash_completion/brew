@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-if [[ -f /usr/local/Homebrew/completions/bash/brew ]]; then
-  source /usr/local/Homebrew/completions/bash/brew
-fi
