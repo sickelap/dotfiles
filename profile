@@ -12,8 +12,5 @@ CWD=$HOME/.dotfiles
 #done
 
 for file in ${CWD}/include/*.sh; do
-  . $file
+  source $file
 done
-
-[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
