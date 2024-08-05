@@ -4,6 +4,7 @@ while read EXTRA_PATH; do
     return
   fi
 done << EOF
+  /opt/homebrew/bin
   /opt/platform-tools
   $HOME/anaconda3/bin
 EOF

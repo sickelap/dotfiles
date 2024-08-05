@@ -4,5 +4,6 @@ while read COMPLETION; do
     return
   fi
 done << EOF
+  /opt/homebrew/etc/profile.d/bash_completion.sh
   /usr/share/bash-completion/bash_completion
 EOF
