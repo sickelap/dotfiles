@@ -3,7 +3,7 @@
 OS=$(uname -s)
 
 if [[ $OS == "Linux" ]]; then
-  if [[ -d $HOME/bin/nvim-linux64 -a -z "$REINSTALL" ]]; then
+  if [ -d $HOME/bin/nvim-linux64 -a -z "$REINSTALL" ]; then
     echo "Neovim is already installed"
     echo "To reinstall, run REINSTALL=1 $0"
   else
@@ -15,7 +15,7 @@ if [[ $OS == "Linux" ]]; then
   fi
 fi
 
-if [[ -d $HOME/.local/share/nvim -a -z "$FORCE" ]]; then
+if [ -d $HOME/.local/share/nvim -a -z "$FORCE" ]; then
   echo "Neovim is already configured"
   echo "To reinstall, run FORCE=1 $0"
 else
