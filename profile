@@ -14,3 +14,6 @@ CWD=$HOME/.dotfiles
 for file in ${CWD}/include/*.sh; do
   source $file
 done
+
+[ -f $HOME/.secrets ] && source $HOME/.secrets
+. "$HOME/.cargo/env"

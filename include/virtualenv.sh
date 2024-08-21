@@ -4,6 +4,7 @@ while read file; do
     return
   fi
 done << EOF
+  /opt/homebrew/bin/virtualenvwrapper.sh
   /bin/virtualenvwrapper.sh
   /usr/local/bin/virtualenvwrapper.sh
   /usr/share/virtualenvwrapper/virtualenvwrapper.sh
