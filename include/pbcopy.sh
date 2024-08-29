@@ -1,11 +1,9 @@
 #!/bin/bash
 
-alias | grep pbcopy &>/dev/null
-IS_ALIAS="$?"
+if ! which pbcopy &>/dev/null; then
+  return
+fi
 
-which pbcopy &>/dev/null
-IS_EXECUTABLE=$?
-
-if [ "$IS_ALIAS" != "0" -o "$IS_EXECUTABLE" != "0" ]; then
+if which xclip &>/dev/null; then
   alias pbcopy="xclip -selection clipboard"
 fi
