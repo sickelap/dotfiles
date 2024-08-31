@@ -28,4 +28,4 @@
   path = ~/.gitconfig.user
 
 [diff "sopsdiffer"]
-	textconv = sops -d
+  textconv = sops -d

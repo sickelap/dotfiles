@@ -1,0 +1,294 @@
+#!/usr/bin/env python3
+#
+# Run tests by executing script without arguments:
+#   e.g.: ./commit-msg
+#
+# In order to use hook for all projects please run the following:
+#   ./commit-msg install
+# This command will add setting to your ~/.gitconfig.user for global hooks folder
+# be sure to include this file in your ~/.gitconfig
+#
+
+import os
+import re
+import sys
+
+VALID_MSGS_RE = [
+    r"^[A-Z]{4,10}-\d{3,}: [a-zA-Z0-9].{4,}$",
+    r"^Upgrade to v(?:[0-9]{1,}\.){2}[0-9]{1,}$",
+    r"^Merge branch \'[\w\-]+\' into [\w\-]+$",
+    r"^Merge remote-tracking branch \'[\w\-]+\'",
+    r"^Revert .+$",
+]
+RED = "\033[31m"
+GREEN = "\033[32m"
+END = "\033[0m"
+MSG_PATH = None
+INSTALL = False
+FAIL = False
+SUCCESS = True
+CWD = os.path.dirname(os.path.abspath(__file__))
+
+if len(sys.argv) == 2:
+    INSTALL = True if sys.argv[1] == "install" else False
+    MSG_PATH = sys.argv[1] if not INSTALL and os.path.isfile(sys.argv[1]) else None
+
+
+def red(text):
+    return RED + text + END
+
+
+def green(text):
+    return GREEN + text + END
+
+
+class CommitMessageChecker(object):
+    def __init__(self, path=None):
+        self.msg_path = path
+
+    @staticmethod
+    def get_branch():
+        return os.popen("git rev-parse --abbrev-ref HEAD").read().rstrip()
+
+    @staticmethod
+    def extract_message(msg):
+        matches = re.match(r"^(?:[^A-Za-z]*[A-Za-z]+[-_]\d+[^a-zA-Z0-9]+)?(.*)", msg)
+        return matches.group(1) if matches else ""
+
+    def extract_ticket_from_branch(self):
+        branch = self.get_branch()
+        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{3,}[-_]\d{3,}).+", branch)
+        return matches.group(1).replace("_", "-").upper() if matches else ""
+
+    @staticmethod
+    def extract_ticket_from_message(msg):
+        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{3,}[-_]\d{3,}).+", msg)
+        return matches.group(1).replace("_", "-").upper() if matches else ""
+
+    @staticmethod
+    def is_correct(msg, pattern):
+        return True if re.match(pattern, msg) else False
+
+    def check(self, msg):
+        for pattern in VALID_MSGS_RE:
+            if self.is_correct(msg, pattern):
+                return True
+        return False
+
+    def get_message(self, msg_override=None):
+        if msg_override:
+            return msg_override
+        with open(self.msg_path, "r") as msg_file:
+            return "\n".join(msg_file.readlines())
+
+    def get_formatted_message(self, msg_override=None):
+        original_message = self.get_message(msg_override)
+        if self.check(original_message):
+            return original_message
+        extracted_ticket = (
+            self.extract_ticket_from_message(original_message)
+            or self.extract_ticket_from_branch()
+        )
+        extracted_message = self.extract_message(original_message)
+        return extracted_ticket + ": " + extracted_message
+
+    def save(self, msg):
+        open(self.msg_path, "w").write(msg)
+
+
+# tests
+if not MSG_PATH and not INSTALL:
+    import subprocess
+    import shlex
+
+    def create_file(path="", content=""):
+        open(path, "w").write(content)
+
+    def run(cmd="", capture=False):
+        if not capture:
+            return 0 == subprocess.call(
+                shlex.split(cmd), stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            )
+        proc = subprocess.Popen(shlex.split(cmd), stdout=subprocess.PIPE)
+        out, _ = proc.communicate()
+        proc.wait()
+        return out.decode().strip()
+
+    def expect(
+        expected_result=FAIL,
+        message="example message",
+        branch="master",
+        expected_message=None,
+    ):
+        run("rm -rf /tmp/commit-msg-test")
+        run("mkdir /tmp/commit-msg-test")
+        os.chdir("/tmp/commit-msg-test")
+        run("git init")
+        run("git config --local core.hooksPath " + CWD)
+        create_file(path="/tmp/commit-msg-test/example.txt", content="example")
+        run("git add .")
+        run('git commit -nm "initial commit"')
+        if branch not in ["master", "main", "dev"]:
+            run("git checkout -b " + branch)
+        create_file(path="/tmp/commit-msg-test/new.txt", content="new")
+        run("git add new.txt")
+        actual_result = run("git commit -m {}".format(shlex.quote(message)))
+        expectation = "succeed" if expected_result else "fail"
+        if expected_message:
+            actual_message = run("git log -1 --pretty=%B", capture=True)
+            ok = actual_message == expected_message and actual_result == expected_result
+            result = green("OK") if ok else red("FAILED")
+        else:
+            result = green("OK") if actual_result == expected_result else red("FAILED")
+        print(
+            "should "
+            + expectation
+            + ': message "'
+            + message
+            + '" on branch "'
+            + branch
+            + '" - '
+            + result
+        )
+        return actual_result == expected_result
+
+    checker = CommitMessageChecker()
+
+    print("test various message formats checks")
+    assert SUCCESS is checker.check("Merge branch 'from-branch' into to-branch")
+    assert SUCCESS is checker.check("Merge remote-tracking branch 'remote-branch'")
+    assert SUCCESS is checker.check('Revert "some commit message"')
+    assert SUCCESS is checker.check("TICKET-001: message")
+    assert SUCCESS is checker.check("Upgrade to v1.0.1")
+    assert FAIL is checker.check("Upgrade to v1")
+    assert FAIL is checker.check("Upgrade to v1.0")
+    assert FAIL is checker.check("Upgrade to v1.0.1.1")
+    assert FAIL is checker.check("Upgrade to v1.0.1-suffix")
+    assert FAIL is checker.check("commit message without ticket")
+    assert FAIL is checker.check("TKT-1122: me")
+    assert FAIL is checker.check("TKT-1122 - message")
+
+    print("test ticket extraction from the message")
+    assert checker.extract_ticket_from_message("tech-1234: hello there") == "TECH-1234"
+    assert checker.extract_ticket_from_message("TECH-1234: hello there") == "TECH-1234"
+
+    print("test message extraction from commit message")
+    assert checker.extract_message("tech-1234: hello there") == "hello there"
+
+    print("test various message formatting scenarios")
+    assert checker.get_formatted_message("TKT-001: message") == "TKT-001: message"
+    assert checker.get_formatted_message("[TKT-001] message") == "TKT-001: message"
+    assert checker.get_formatted_message("TKT-001 message") == "TKT-001: message"
+    assert checker.get_formatted_message("TKT-001 - message") == "TKT-001: message"
+    assert checker.get_formatted_message("TKT-001 : message") == "TKT-001: message"
+    assert checker.get_formatted_message("   TKT-001 message") == "TKT-001: message"
+    assert (
+        checker.get_formatted_message("tech-0001: valid message")
+        == "TECH-0001: valid message"
+    )
+
+    # integration tests
+    assert expect(
+        SUCCESS,
+        message="valid message",
+        branch="tech-1234_feature",
+        expected_message="TECH-1234: valid message",
+    )
+    assert expect(
+        SUCCESS,
+        message="TECH-1100: hello",
+        branch="TECH-1100_feature",
+        expected_message="TECH-1100: hello",
+    )
+    assert expect(
+        SUCCESS,
+        message="TECH-1234: hello",
+        branch="master",
+        expected_message="TECH-1234: hello",
+    )
+    assert expect(
+        SUCCESS,
+        message="TECH-1234-hello",
+        branch="master",
+        expected_message="TECH-1234: hello",
+    )
+    assert expect(
+        SUCCESS,
+        message="TECH-1234-hello",
+        branch="main",
+        expected_message="TECH-1234: hello",
+    )
+    assert expect(
+        SUCCESS,
+        message="TECH-1234-hello",
+        branch="dev",
+        expected_message="TECH-1234: hello",
+    )
+    assert expect(
+        SUCCESS,
+        message="hello",
+        branch="TECH-1234_feature",
+        expected_message="TECH-1234: hello",
+    )
+    assert expect(
+        SUCCESS,
+        message="tech-0001: message",
+        branch="TECH-0002_feature",
+        expected_message="TECH-0001: message",
+    )
+    assert expect(
+        SUCCESS,
+        message="tech-01: message",
+        branch="TECH-0002_feature",
+        expected_message="TECH-0002: message",
+    )
+    assert expect(
+        SUCCESS,
+        message="tech-1234: hello",
+        branch="master",
+        expected_message="TECH-1234: hello",
+    )
+    assert expect(SUCCESS, message="Upgrade to v1.2.3", branch="master")
+    assert expect(
+        SUCCESS, message="Merge branch 'TECH-1234_feature' into master", branch="master"
+    )
+    assert expect(
+        SUCCESS,
+        message="Merge remote-tracking branch 'TECH-1234_feature'",
+        branch="master",
+    )
+    assert expect(SUCCESS, message='Revert "some commit message"', branch="master")
+    assert expect(FAIL, message="hello", branch="feature")
+    assert expect(FAIL, message="", branch="master")
+    assert expect(FAIL, message="", branch="TECH-1234_feature")
+    assert expect(FAIL, message="Upgrade to 1.0.0", branch="master")
+    assert expect(FAIL, message="Upgrade to v1.2", branch="master")
+    assert expect(FAIL, message="Upgrade to v1.0.0-snapshot", branch="master")
+    assert expect(FAIL, message="TECH-00", branch="TECH-1234_feature")
+    assert expect(FAIL, message="TECH-00: valid message", branch="TECH-12_feature")
+    assert expect(FAIL, message="valid message", branch="TECH-12_feature")
+    assert expect(FAIL, message="TECH-1234", branch="TECH-1234_feature")
+    assert expect(FAIL, message="TECH-1234: ", branch="TECH-1234_feature")
+    assert expect(FAIL, message="TECH-1234: hi", branch="TECH-1234_feature")
+
+    print(green("All tests passed. Good Job!"))
+    sys.exit(0)
+
+elif INSTALL:
+    print("Updating git configuration")
+    sys.exit(os.system("git config -f ~/.gitconfig.user core.hooksPath " + CWD))
+
+# check commit message format
+checker = CommitMessageChecker(MSG_PATH)
+commit_message = checker.get_formatted_message()
+if not checker.check(commit_message):
+    print(red("ERROR: Invalid/short commit message or branch name"))
+    print(
+        red(
+            "       Either commit message or branch name should contain Jira ticket number\n"
+        )
+    )
+    print(red("Commit message example: TKT-10234: did something useful"))
+    print(red("Branch name example:    TKT-10234_best_feature_eva"))
+    sys.exit(1)
+checker.save(commit_message)
