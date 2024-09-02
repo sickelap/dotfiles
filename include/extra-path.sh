@@ -1,10 +1,9 @@
-while read EXTRA_PATH; do
+while read -r EXTRA_PATH; do
   if [[ -d $EXTRA_PATH ]]; then
     export PATH="$PATH:$EXTRA_PATH"
-    return
   fi
-done << EOF
+done <<EOF
   /opt/homebrew/bin
   /opt/platform-tools
-  $HOME/anaconda3/bin
+  $HOME/.dotfiles/scripts
 EOF
