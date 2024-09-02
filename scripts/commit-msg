@@ -14,7 +14,7 @@ import re
 import sys
 
 VALID_MSGS_RE = [
-    r"^[A-Z]{4,10}-\d{3,}: [a-zA-Z0-9].{4,}$",
+    r"^[A-Z]{2,10}-\d{1,}: [a-zA-Z0-9].{4,}$",
     r"^Upgrade to v(?:[0-9]{1,}\.){2}[0-9]{1,}$",
     r"^Merge branch \'[\w\-]+\' into [\w\-]+$",
     r"^Merge remote-tracking branch \'[\w\-]+\'",
@@ -57,12 +57,12 @@ class CommitMessageChecker(object):
 
     def extract_ticket_from_branch(self):
         branch = self.get_branch()
-        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{3,}[-_]\d{3,}).+", branch)
+        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{2,}[-_]\d{2,}).+", branch)
         return matches.group(1).replace("_", "-").upper() if matches else ""
 
     @staticmethod
     def extract_ticket_from_message(msg):
-        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{3,}[-_]\d{3,}).+", msg)
+        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{2,}[-_]\d{2,}).+", msg)
         return matches.group(1).replace("_", "-").upper() if matches else ""
 
     @staticmethod
@@ -98,8 +98,8 @@ class CommitMessageChecker(object):
 
 # tests
 if not MSG_PATH and not INSTALL:
-    import subprocess
     import shlex
+    import subprocess
 
     def create_file(path="", content=""):
         open(path, "w").write(content)
