@@ -97,6 +97,12 @@ mappings = {
         *remap("Ctrl+t", "Cmd+t"),
         # close window
         *remap("Ctrl+w", "Cmd+w", [NOT_TERMINALS]),
+        # toggle bold text
+        *remap("Ctrl+b", "Cmd+b", [NOT_TERMINALS]),
+        # toggle italic text
+        *remap("Ctrl+i", "Cmd+i", [NOT_TERMINALS]),
+        # toggle underline text
+        *remap("Ctrl+u", "Cmd+u", [NOT_TERMINALS]),
     ],
 }
 
