@@ -4,6 +4,6 @@ alias showme='ls -lR'
 alias doas='sudo'
 
 which nvim &>/dev/null
-if [[ $? -eq 0 ]]; then
+if [ "$?" == "0" ]; then
   alias vim=nvim
 fi

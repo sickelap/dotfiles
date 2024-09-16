@@ -1,1 +1,3 @@
-[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+if [[ -s "$HOME/.cargo/env" ]]; then
+  source "$HOME/.cargo/env"
+fi

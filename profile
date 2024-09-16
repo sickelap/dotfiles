@@ -16,4 +16,3 @@ for file in ${CWD}/include/*.sh; do
 done
 
 [ -f $HOME/.secrets ] && source $HOME/.secrets
-. "$HOME/.cargo/env"

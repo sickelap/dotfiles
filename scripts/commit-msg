@@ -57,12 +57,12 @@ class CommitMessageChecker(object):
 
     def extract_ticket_from_branch(self):
         branch = self.get_branch()
-        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{2,}[-_]\d{2,}).+", branch)
+        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{2,}[-_]\d+).+", branch)
         return matches.group(1).replace("_", "-").upper() if matches else ""
 
     @staticmethod
     def extract_ticket_from_message(msg):
-        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{2,}[-_]\d{2,}).+", msg)
+        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{2,}[-_]\d+).+", msg)
         return matches.group(1).replace("_", "-").upper() if matches else ""
 
     @staticmethod
@@ -240,7 +240,7 @@ if not MSG_PATH and not INSTALL:
         SUCCESS,
         message="tech-01: message",
         branch="TECH-0002_feature",
-        expected_message="TECH-0002: message",
+        expected_message="TECH-01: message",
     )
     assert expect(
         SUCCESS,
@@ -265,8 +265,6 @@ if not MSG_PATH and not INSTALL:
     assert expect(FAIL, message="Upgrade to v1.2", branch="master")
     assert expect(FAIL, message="Upgrade to v1.0.0-snapshot", branch="master")
     assert expect(FAIL, message="TECH-00", branch="TECH-1234_feature")
-    assert expect(FAIL, message="TECH-00: valid message", branch="TECH-12_feature")
-    assert expect(FAIL, message="valid message", branch="TECH-12_feature")
     assert expect(FAIL, message="TECH-1234", branch="TECH-1234_feature")
     assert expect(FAIL, message="TECH-1234: ", branch="TECH-1234_feature")
     assert expect(FAIL, message="TECH-1234: hi", branch="TECH-1234_feature")

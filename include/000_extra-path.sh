@@ -1,4 +1,4 @@
-while read -r EXTRA_PATH; do
+while read EXTRA_PATH; do
   if [[ -d $EXTRA_PATH ]]; then
     export PATH="$PATH:$EXTRA_PATH"
   fi

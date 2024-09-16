@@ -27,5 +27,8 @@
 [include]
   path = ~/.gitconfig.user
 
+[includeIf "gitdir:~/Projects/work/"]
+  path = ~/.gitconfig.work
+
 [diff "sopsdiffer"]
   textconv = sops -d

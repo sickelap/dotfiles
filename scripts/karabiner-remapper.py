@@ -37,10 +37,14 @@ def resolve(modifiers):
 
 
 def remap(map_from, map_to, conditions=[]):
-    key_from = map_from.split("+")[-1]
-    modifiers_from = map_from.split("+")[:-1]
-    key_to = map_to.split("+")[-1]
-    modifiers_to = map_to.split("+")[:-1]
+    keys_from = map_from.split("+")
+    key_from = keys_from[-1]
+    modifiers_from = [] if len(keys_from) == 1 else keys_from[:-1]
+
+    keys_to = map_to.split("+")
+    key_to = keys_from[-1]
+    modifiers_to = [] if len(keys_to) == 1 else keys_to[:-1]
+
     return [
         # create the actual mapping
         {
