@@ -52,17 +52,17 @@ class CommitMessageChecker(object):
 
     @staticmethod
     def extract_message(msg):
-        matches = re.match(r"^(?:[^A-Za-z]*[A-Za-z]+[-_]\d+[^a-zA-Z0-9]+)?(.*)", msg)
+        matches = re.match(r"^(?:[^\/]*/)?(?:[^A-Za-z]*[A-Za-z]+[-_]\d+[^a-zA-Z0-9]+)?(.*)", msg)
         return matches.group(1) if matches else ""
 
     def extract_ticket_from_branch(self):
         branch = self.get_branch()
-        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{2,}[-_]\d+).+", branch)
+        matches = re.match(r"^(?:[^\/]*/)?[^A-Za-z]*([A-Za-z]{2,}[-_]\d+).+", branch)
         return matches.group(1).replace("_", "-").upper() if matches else ""
 
     @staticmethod
     def extract_ticket_from_message(msg):
-        matches = re.match(r"^[^A-Za-z]*([A-Za-z]{2,}[-_]\d+).+", msg)
+        matches = re.match(r"^(?:[^\/]*/)?[^A-Za-z]*([A-Za-z]{2,}[-_]\d+).+", msg)
         return matches.group(1).replace("_", "-").upper() if matches else ""
 
     @staticmethod
