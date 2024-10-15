@@ -13,3 +13,4 @@ ln -sf $THIS_DIR/gitconfig $HOME/.gitconfig
 ln -sf $THIS_DIR/profile $HOME/.bashrc
 ln -sf $THIS_DIR/profile $HOME/.profile
 ln -sf $THIS_DIR/editorconfig $HOME/.editorconfig
+ln -sf $THIS_DIR/curlrc $HOME/.curlrc

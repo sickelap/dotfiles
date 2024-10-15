@@ -96,6 +96,7 @@ mappings = {
         *remap("Ctrl+n", "Cmd+n", [NOT_TERMINALS]),
         *remap("Ctrl+q", "Cmd+q"),
         *remap("Ctrl+r", "Cmd+r", [NOT_TERMINALS]),
+        *remap("Ctrl+d", "Cmd+d", [BROWSERS]),
         # save
         *remap("Ctrl+s", "Cmd+s"),
         *remap("Ctrl+t", "Cmd+t"),
