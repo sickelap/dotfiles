@@ -15,12 +15,12 @@ local servers = {
   "jsonls",
   "pyright",
   "terraformls",
-  "tsserver",
-  "ltex",
+  "ts_ls",
+  -- "ltex",
   "jinja_lsp",
   "cssls",
   "html",
-  "emmet_ls",
+  -- "emmet_ls",
 }
 
 for _, lsp in ipairs(servers) do

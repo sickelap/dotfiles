@@ -22,7 +22,7 @@ local plugins = {
         "bash-language-server",
         "css-lsp",
         "dockerfile-language-server",
-        "emmet-ls",
+        -- "emmet-ls",
         "eslint-lsp",
         "gopls",
         "html-lsp",
@@ -33,7 +33,7 @@ local plugins = {
         "terraform-ls",
         "typescript-language-server",
         "yaml-language-server",
-        "ltex-ls",
+        -- "ltex-ls",
         "jinja-lsp",
 
         -- linters
@@ -160,7 +160,7 @@ local plugins = {
           terraform = { "tflint" },
         },
         format_on_save = {
-          timeout_ms = 500,
+          -- timeout_ms = 500,
           lsp_fallback = true,
         },
       }
