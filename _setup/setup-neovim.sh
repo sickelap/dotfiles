@@ -11,7 +11,7 @@ if [[ $OS == "Linux" ]]; then
     mkdir -p $HOME/bin
     cd $HOME/bin
     curl -Lso- https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz | tar xz
-    ln -s $HOME/bin/nvim-linux64/bin/nvim $HOME/bin/vim
+    ln -sf $HOME/bin/nvim-linux64/bin/nvim $HOME/bin/vim
   fi
 fi
 
