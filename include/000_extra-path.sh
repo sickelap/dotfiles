@@ -4,6 +4,8 @@ while read EXTRA_PATH; do
   fi
 done <<EOF
   /opt/homebrew/opt/python@3.11/libexec/bin
+  /opt/homebrew/opt/python@3.12/libexec/bin
+  /opt/homebrew/opt/python@3.13/libexec/bin
   /opt/homebrew/bin
   /opt/platform-tools
   $HOME/.dotfiles/scripts
