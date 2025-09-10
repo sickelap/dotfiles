@@ -27,7 +27,6 @@ if [ -d "$HOME/.local/share/nvim" ] && [ -z "$FORCE" ]; then
   echo "Neovim is already configured"
   echo "To reinstall, run FORCE=1 $0"
 else
-  rm -rf "$HOME/.{local/share,config}/nvim"
-  git clone https://github.com/NvChad/NvChad "$HOME/.config/nvim" -b v2.0 --depth 1
-  git clone https://github.com/sickelap/nvchad-custom-config "$HOME/.config/nvim/lua/custom"
+  rm -rf $HOME/.{local/share,config}/nvim
+  git clone https://github.com/sickelap/nvim-config "$HOME/.config/nvim"
 fi
