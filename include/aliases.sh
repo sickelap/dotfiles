@@ -7,3 +7,5 @@ which nvim &>/dev/null
 if [ "$?" == "0" ]; then
   alias vim=nvim
 fi
+
+alias dotfiles='vim ~/.dotfiles && source ~/.profile'
