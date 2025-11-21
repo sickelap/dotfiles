@@ -2,6 +2,7 @@
   name = sickelap
   email = sickelap@pm.me
   signkey = 9F94D75AACC635B40C398EDC15F02C5F3F6CFFD3
+  signingkey = 9F94D75AACC635B40C398EDC15F02C5F3F6CFFD3
 
 [gpg]
   program = gpg

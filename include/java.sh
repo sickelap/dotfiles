@@ -11,4 +11,5 @@ done <<EOF
   /usr/lib/jvm/java-11-openjdk-amd64
   /usr/lib/jvm/java-21-openjdk-amd64
   /usr/local/Cellar/openjdk\@11/11.0.10
+  /opt/homebrew/Cellar/openjdk/25
 EOF

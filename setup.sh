@@ -5,8 +5,9 @@ THIS_DIR=$(cd $(dirname $0) && pwd)
 $THIS_DIR/_setup/setup-neovim.sh
 $THIS_DIR/_setup/setup-tmux.sh
 $THIS_DIR/_setup/setup-nvm.sh
-$THIS_DIR/_setup/setup-go.sh
+# $THIS_DIR/_setup/setup-go.sh
 $THIS_DIR/_setup/setup-rust.sh
+$THIS_DIR/_setup/setup-fonts.sh
 
 # other shit
 ln -sf $THIS_DIR/gitconfig $HOME/.gitconfig

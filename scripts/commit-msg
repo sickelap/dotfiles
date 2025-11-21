@@ -52,7 +52,9 @@ class CommitMessageChecker(object):
 
     @staticmethod
     def extract_message(msg):
-        matches = re.match(r"^(?:[^\/]*/)?(?:[^A-Za-z]*[A-Za-z]+[-_]\d+[^a-zA-Z0-9]+)?(.*)", msg)
+        matches = re.match(
+            r"^(?:[^\/]*/)?(?:[^A-Za-z]*[A-Za-z]+[-_]\d+[^a-zA-Z0-9]+)?(.*)", msg
+        )
         return matches.group(1) if matches else ""
 
     def extract_ticket_from_branch(self):
@@ -188,6 +190,12 @@ if not MSG_PATH and not INSTALL:
     )
 
     # integration tests
+    assert expect(
+        SUCCESS,
+        message="valid message",
+        branch="tech-1234/feature",
+        expected_message="TECH-1234: valid message",
+    )
     assert expect(
         SUCCESS,
         message="valid message",
