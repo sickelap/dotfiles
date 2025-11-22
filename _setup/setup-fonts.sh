@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -eu
 
@@ -7,6 +7,9 @@ OS=$(uname -s)
 case $OS in
   Darwin)
     DESTDIR=~/Library/Fonts/
+    ;;
+  Linux)
+    DESTDIR=~/.local/share/fonts/
     ;;
   *)
     echo "Unsupported OS $OS"
@@ -29,6 +32,13 @@ unzip -qqud $TMPDIR $DOWNLOAD
 
 echo Installing fonts
 find $TMPDIR -type f -name "*.ttf" -exec cp {} $DESTDIR \;
+
+case $OS in
+  Linux)
+    echo Updating font cache
+    fc-cache -fv
+    ;;
+esac
 
 echo Fonts installed to $DESTDIR
 
