@@ -16,10 +16,10 @@ if [[ $OS == "Linux" ]]; then
     echo "To reinstall, run REINSTALL=1 $0"
   else
     echo "Installing Neovim"
-    mkdir -p "$HOME/bin"
-    cd "$HOME/bin" || true
-    curl -Lso- "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-$ARCH.tar.gz" | tar xz
-    ln -sf "$HOME/bin/nvim-linux-$ARCH/bin/nvim" "$HOME/bin/vim"
+#    mkdir -p "$HOME/bin"
+#    cd "$HOME/bin" || true
+#    curl -Lso- "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-$ARCH.tar.gz" | tar xz
+#    ln -sf "$HOME/bin/nvim-linux-$ARCH/bin/nvim" "$HOME/bin/vim"
   fi
 fi
 
