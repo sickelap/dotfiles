@@ -8,4 +8,5 @@ done <<EOF
   /opt/platform-tools
   $HOME/.dotfiles/scripts
   /opt/homebrew/opt/python@3.13/libexec/bin
+  $HOME/Library/Python/3.9/bin
 EOF
