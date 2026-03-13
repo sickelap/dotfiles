@@ -3,8 +3,9 @@ while read EXTRA_PATH; do
     export PATH="$EXTRA_PATH:$PATH"
   fi
 done <<EOF
-  $HOME/.pyenv/shims
   /opt/homebrew/bin
+  $HOME/.cargo/bin
+  $HOME/.local/bin
   /opt/platform-tools
   $HOME/.dotfiles/scripts
 EOF

@@ -9,22 +9,5 @@ if [ "$?" == "0" ]; then
 fi
 
 alias dotfiles='vim ~/.dotfiles && source ~/.profile'
-
-coregz() {
-  set -e
-  echo -n "creating snapshot ... "
-  rm -rf $HOME/Downloads/repo*
-  git clone file://$HOME/Projects/work/Gousto2-Core $HOME/Downloads/repo --depth 1 2>/dev/null
-  tar czf $HOME/Downloads/repo.tar.gz $HOME/Downloads/repo 2>/dev/null
-  rm -rf $HOME/Downloads/repo/
-  echo "done ($HOME/Downloads/repo.tar.gz)"
-}
-coregz_full() {
-  set -e
-  echo -n "creating snapshot ... "
-  rm -rf $HOME/Downloads/repo*
-  git clone file://$HOME/Projects/work/Gousto2-Core $HOME/Downloads/repo 2>/dev/null
-  tar czf $HOME/Downloads/repo.tar.gz $HOME/Downloads/repo 2>/dev/null
-  rm -rf $HOME/Downloads/repo/
-  echo "done ($HOME/Downloads/repo.tar.gz)"
-}
+alias codex-personal='rm ~/.codex && ln -s ~/.codex.personal ~/.codex'
+alias codex-gousto='rm ~/.codex && ln -s ~/.codex.gousto ~/.codex'
