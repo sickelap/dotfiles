@@ -16,3 +16,18 @@ for file in ${CWD}/include/*.sh; do
 done
 
 [ -f $HOME/.secrets ] && source $HOME/.secrets
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Added by git-ai installer on Fri May  8 17:15:04 BST 2026
+export PATH="/Users/genadijus.paleckis/.git-ai/bin:$PATH"
+
+source '/Users/genadijus.paleckis/.bash_completions/gousto.sh'
+
+# Added by LM Studio CLI tool (lms)
+export PATH="$PATH:/Users/genadijus.paleckis/.lmstudio/bin"
+
+# Added by LM Studio CLI tool (lms)
+export PATH="$PATH:/Users/genadijus.paleckis/.lmstudio/bin"

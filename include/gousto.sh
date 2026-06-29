@@ -57,6 +57,7 @@ export AWS_CA_BUNDLE="${CLOUDFLARE_CA_CERT_ALL}"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 alias rds-prod-tunnel="AWS_PROFILE=production gousto env connect-tunnel production -h rds-production-platform-transactional.gousto.co.uk"
+alias aws-sso-login-production="AWS_PROFILE=production aws sso login"
 
 colima-start() {
     colima start \
@@ -67,3 +68,20 @@ colima-start() {
         --cpu 4 \
         --runtime docker
 }
+
+force-push-to-env() {
+  local env="$1"
+  if [[ "$env" == "" ]]; then
+    echo "usage: force-push-to-env <env>"
+    return
+  fi
+  git push origin `git rev-parse --abbrev-ref HEAD`:$env --force --no-verify
+}
+
+force-push-to-peas-env() {
+  force-push-to-env env-devpripro
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

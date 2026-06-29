@@ -282,7 +282,7 @@ if not MSG_PATH and not INSTALL:
 
 elif INSTALL:
     print("Updating git configuration")
-    sys.exit(os.system("git config -f ~/.gitconfig.user core.hooksPath " + CWD))
+    sys.exit(os.system("git config -f ~/.gitconfig.work core.hooksPath " + CWD))
 
 # check commit message format
 checker = CommitMessageChecker(MSG_PATH)

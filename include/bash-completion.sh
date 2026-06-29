@@ -10,3 +10,9 @@ done <<EOF
   /usr/local/share/bash/completion/docker
   /usr/share/bash-completion/bash_completion
 EOF
+
+if [[ -d "$HOME/.local/share/bash-completion/completions" ]]; then
+  for f in "$HOME/.local/share/bash-completion/completions"/*; do
+    [[ -f "$f" ]] && . "$f"
+  done
+fi

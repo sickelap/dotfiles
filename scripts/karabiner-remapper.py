@@ -10,7 +10,11 @@ BROWSER_APPS = [
     "^org\\.alacritty$",
 ]
 
-TERMINAL_APPS = ["^com\\.apple\\.Terminal$", "^net\\.kovidgoyal\\.kitty$"]
+TERMINAL_APPS = [
+    "^com\\.apple\\.Terminal$",
+    "^net\\.kovidgoyal\\.kitty$",
+    "^com\\.mitchellh\\.ghostty$",
+]
 
 NOT = "frontmost_application_unless"
 ONLY = "frontmost_application_if"
