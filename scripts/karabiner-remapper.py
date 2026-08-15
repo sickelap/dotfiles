@@ -7,13 +7,14 @@ BROWSER_APPS = [
     "^org\\.mozilla\\.firefox$",
     "^com\\.apple\\.Safari$",
     "^com\\.microsoft\\.edgemac$",
-    "^org\\.alacritty$",
 ]
 
 TERMINAL_APPS = [
     "^com\\.apple\\.Terminal$",
     "^net\\.kovidgoyal\\.kitty$",
     "^com\\.mitchellh\\.ghostty$",
+    "^org\\.alacritty$",
+    "^com\\.github\\.wez\\.wezterm$",
 ]
 
 NOT = "frontmost_application_unless"
